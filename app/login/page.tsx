@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { supabase } from '@/utils/supabase'
+import { supabase } from '../../utils/supabase'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -15,7 +15,15 @@ export default function LoginPage() {
     setLoading(true)
     setMessage('')
 
-    const { error } = await supabase.auth.signInWithOtp({ email })
+    const { error } = await supabase.auth.signInWithOtp({ 
+      email,
+      options: {
+        emailRedirectTo: `${window.location.origin}/auth/callback`,
+        data: {
+          redirectTo: '/mini-apps/color-palette'
+        }
+      }
+    })
 
     if (error) {
       setMessage(error.message)

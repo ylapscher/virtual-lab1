@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.1",
+    "@types/react": "19.0.1",
+    "typescript": "5.7.2"
+  },
+  "dependencies": {
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/supabase-js": "^2.47.3",
+    "next-auth": "^4.24.11"
+  }
+}
